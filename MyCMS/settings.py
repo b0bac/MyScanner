@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-xy1-96e6dnr=l=+d!o)0!)1ns(yvfc1icn*j$b8=y+pf+10g(3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'Work',
     'simpleui',
+    'ExpManager',
+    'Result',
     'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -140,7 +142,7 @@ SIMPLEUI_CONFIG = {
     'system_keep': False,
 
     # 用于菜单排序和过滤, 不填此字段为默认排序和全部显示。空列表[] 为全部不显示.
-    'menu_display': ['任务管理', '用户管理'],
+    'menu_display': ['任务管理', '攻击负载', '任务结果', '用户管理'],
 
     # 设置是否开启动态菜单, 默认为False. 如果开启, 则会在每次用户登陆时刷新展示菜单内容。
     # 一般建议关闭。
@@ -170,7 +172,29 @@ SIMPLEUI_CONFIG = {
             'models': [
                 {
                     'name': '任务列表',
-                    'url': '/Work/work',
+                    'url': 'Work/work',
+                    'icon': 'fa fa-tasks'
+                },
+            ]
+        },
+        {
+            'name': '攻击负载',
+            'icon': 'fa fa-rocket',
+            'models': [
+                {
+                    'name': '负载管理',
+                    'url': 'ExpManager/expmanager',
+                    'icon': 'fa fa-tasks'
+                },
+            ]
+        },
+        {
+            'name': '任务结果',
+            'icon': 'fa fa-bolt',
+            'models': [
+                {
+                    'name': '任务结果',
+                    'url': 'Result/result',
                     'icon': 'fa fa-tasks'
                 },
             ]
