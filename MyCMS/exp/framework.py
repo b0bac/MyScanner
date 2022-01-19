@@ -15,7 +15,6 @@ class ExpFrameWork:
     def execute(self):
         self.result, self.scanlog = self.scanfunc(self.ipaddress, self.port)
         self.date = str(datetime.date.today())
-        print(self.date)
         ScanResultInsert(self.taskid, self.taskname, self.vulnid, self.scanlog, self.result, self.date, self.ipaddress ,self.port)
 
 

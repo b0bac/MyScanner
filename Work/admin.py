@@ -11,18 +11,18 @@ class WorkAdmin(admin.ModelAdmin):
     ordering = ["id"]
     date_hierarchy = 'timestamp'
     @transaction.atomic
-     def scan(self, request, queryset):
-        workid = None
-        for item in request.POST.lists():
-            if item[0] == "_selected_action":
-                workid = item[1]
-        if isinstance(workid, list):
-            for id in workid:
-                thread = Scan(id)
-                thread.start()
-                messages.add_message(request, messages.SUCCESS, '开始扫描%s' % str(id))
-        else:
-            messages.add_message(request, messages.SUCCESS, '扫描异常')
+    def scan(self, request, queryset):
+       workid = None
+       for item in request.POST.lists():
+           if item[0] == "_selected_action":
+               workid = item[1]
+       if isinstance(workid, list):
+           for id in workid:
+               thread = Scan(id)
+               thread.start()
+               messages.add_message(request, messages.SUCCESS, '开始扫描%s' % str(id))
+       else:
+           messages.add_message(request, messages.SUCCESS, '扫描异常')
 
 
     scan.short_description = "启动扫描"

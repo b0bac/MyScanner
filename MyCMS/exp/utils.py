@@ -39,25 +39,18 @@ def MySQLClose(database):
 
 def ScanResultInsert(id, name, vulnid, scanlog, result, date, ipaddress, port):
     cursor, connection = MySQLConnection()
-    print("1")
     if cursor is False:
-        print("2")
         return False
     else:
-        print("3")
         ret1 = MySQLInsertResult(cursor, connection, id, name, vulnid, scanlog, result, date, ipaddress, port)
         if ret1 is True:
-            print("4")
             ret2 = MySQLClose(connection)
             if ret2 is True:
-                print("5")
                 return True
             else:
-                print("6")
                 del connection
                 return False
         else:
-            print("7")
             del connection
             return False
 
