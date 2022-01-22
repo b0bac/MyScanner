@@ -1,4 +1,4 @@
-# MyCMS
+# MyScanner
 **本来想学习使用Django写一个CMS，结果还是逃脱不了安全工程师的脑洞，学习过程所以写的很多东西都不是很对，但是功能实现了，就这样吧 我也不是专业开发，请轻轻的喷**
 ## 登陆页面
 ![image](https://user-images.githubusercontent.com/11972644/150107042-bd098716-3bd1-4700-89b8-5e08210264b9.png)
